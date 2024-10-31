@@ -11,7 +11,13 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        white: "#ffff",
+        rose: "#FD6E86",
+        blue: "#2D73D7"
       },
+      fontFamily:{
+        montserrat: ["var(--font-montserrat)"]
+      }
     },
   },
   plugins: [],
