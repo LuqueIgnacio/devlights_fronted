@@ -2,15 +2,15 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-
-export default function ProductCard() {
+import { IProduct } from '@/types'
+export default function ProductCard( {product} : {product: IProduct}) {
   return (
-    <Link href={"product/45"}>
-      <div className='bg-white shadow-xl ' >
+    <Link href={`/product/${product._id}`}>
+      <div className='bg-white shadow-xl rounded' >
           <div className='w-full'>
             <div className='w-[284px] h-[207px] relative'>
               <Image
-                  src={"/guitarras.jpg"}
+                  src={product.image}
                   layout='fill'
                   objectFit='cover'
                   alt='producto'
@@ -19,8 +19,8 @@ export default function ProductCard() {
             </div>
           </div>
           <div className='p-2'>
-              <h4 className='font-bold font-montserrat'>Guitarra hermosa</h4>
-              <p className='font-bold'>$250</p>
+              <h4 className='font-semibold font-montserrat'>{product.name}</h4>
+              <p className='font-semibold text-sm'>${product.price}</p>
           </div>
       </div>
     </Link>
