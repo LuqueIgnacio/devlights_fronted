@@ -13,7 +13,8 @@ const config: Config = {
         foreground: "var(--foreground)",
         white: "#ffff",
         rose: "#FD6E86",
-        blue: "#2D73D7"
+        blue: "#2D73D7",
+        "rose-dark": "#F83758"
       },
       fontFamily:{
         montserrat: ["var(--font-montserrat)"]
