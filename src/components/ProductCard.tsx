@@ -8,13 +8,15 @@ export default function ProductCard() {
     <Link href={"product/45"}>
       <div className='bg-white shadow-xl ' >
           <div className='w-full'>
+            <div className='w-[284px] h-[207px] relative'>
               <Image
                   src={"/guitarras.jpg"}
-                  width={1920}
-                  height={500}
+                  layout='fill'
+                  objectFit='cover'
                   alt='producto'
-                  className='w-max h-20'
+                  
               />
+            </div>
           </div>
           <div className='p-2'>
               <h4 className='font-bold font-montserrat'>Guitarra hermosa</h4>
