@@ -1,12 +1,15 @@
 import React from 'react'
 import Image from 'next/image'
+import { IProduct } from '@/types'
+import { useCart } from '@/context/CartProvider'
 
-export default function CartProduct() {
+export default function CartProduct({product}: {product: IProduct}) {
+    const {addToCart, decreaseQuantity} = useCart()
   return (
     <div className='flex justify-between gap-4  font-montserrat'>
         <div className='w-[150px] h-[150px] relative'>
             <Image
-                src={"/guitarras.jpg"}
+                src={product.image}
                 alt='Producto del carrito'
                 layout='fill'
                 objectFit='cover'
@@ -14,15 +17,15 @@ export default function CartProduct() {
         </div>
         
         <div>
-            <p className='font-bold'>Guitarra Clásica</p>
+            <p className='font-bold'>{product.name}</p>
         </div>
 
         <div>
-            <p className='font-bold'>Precio: $250</p>
+            <p className='font-bold'>Precio: ${product.price}</p>
             <div className='flex justify-evenly py-2 drop-shadow-xl bg-white mt-2'>
-                <button className='text-rose text-lg'>-</button>
-                <p className='text-lg'>1</p>
-                <button className='text-rose text-lg'>+</button>
+                <button onClick={() => decreaseQuantity(product)} className='text-rose text-lg'>-</button>
+                <p className='text-lg'>{product.quantity}</p>
+                <button onClick={() => addToCart(product)} className='text-rose text-lg'>+</button>
             </div>
         </div>
     </div>
