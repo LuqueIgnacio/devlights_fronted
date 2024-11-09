@@ -19,7 +19,7 @@ export default function ProductCard( {product} : {product: IProduct}) {
             </div>
           </div>
           <div className='p-2'>
-              <h4 className='font-semibold font-montserrat'>{product.name}</h4>
+              <h4 className='h-12 font-semibold font-montserrat overflow-clip'>{product.name}</h4>
               <p className='font-semibold text-sm'>${product.price}</p>
           </div>
       </div>
