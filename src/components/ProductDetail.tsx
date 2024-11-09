@@ -3,8 +3,10 @@
 import React from 'react'
 import Image from 'next/image'
 import { IProduct } from '@/types'
+import { useCart } from '@/context/CartProvider'
 
 export default function ProductDetail({product} : {product: IProduct}) {
+    const {addToCart, cart} = useCart()
   return (
     <div className='m-auto w-8/12  flex gap-4'>
         <div className='w-full'>
@@ -22,7 +24,7 @@ export default function ProductDetail({product} : {product: IProduct}) {
             <p className='mt-3'>{product.description}</p>
             <button 
                 className='bg-blue text-white px-4 py-2 text-sm flex gap-3 mt-6'
-                onClick={() => console.log("holaa")}
+                onClick={() => {addToCart(product); console.log(cart)}}
             >
                 <Image 
                     src={"/cartwhite.png"}

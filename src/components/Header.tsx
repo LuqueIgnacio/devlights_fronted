@@ -50,12 +50,14 @@ export default async function Header() {
                 height={24}
                 alt='carrito'
                 />
-                <Image
-                    src={"/cart.png"}
-                    width={24}
-                    height={24}
-                    alt='favoritos'
-                />
+                <Link href={"/cart"}>
+                    <Image
+                        src={"/cart.png"}
+                        width={24}
+                        height={24}
+                        alt='favoritos'
+                    />
+                </Link>
                 <Link href={"/profile"}>Ver perfil</Link>
                 </>
             ) : null

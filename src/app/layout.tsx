@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import {Montserrat} from "next/font/google"
+import { SessionProvider } from "next-auth/react"
 
 const montserrat = Montserrat({
     variable: "--font-montserrat",
@@ -17,11 +18,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  
   return (
     <html lang="en" className={`${montserrat.variable}`}>
+      <SessionProvider>
       <body className="min-h-screen flex flex-col font-montserrat">
         {children}
       </body>
+      </SessionProvider>
     </html>
   );
 }
