@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import userService from '@/services/UserService'
 export default function RegisterPage() {
+    const router = useRouter()
     const [formData, setFormData] = useState({
         username: "",
         password: "",
@@ -24,11 +26,17 @@ export default function RegisterPage() {
         }));
     };
     
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault()
+        console.log(formData.confirmPassword, formData.password)
         if(formData.password === formData.confirmPassword){
             setPasswordMatch(true)
-            return
+            const result = await userService.register(formData.username, formData.password)
+            if(result?.ok){
+                router.push("/login")
+                return
+            }
+            console.log("Ha ocurrido un error")
         }
         setPasswordMatch(false)
     }
