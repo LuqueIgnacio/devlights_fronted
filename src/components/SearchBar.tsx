@@ -29,6 +29,7 @@ export default function SearchBar() {
             width={20}
             height={40}
             src={"/search.png"}
+            alt='searchbar'
             className='hover:cursor-pointer'
             onClick={handleSubmit}
         />
